@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 #include <malloc.h>
 
@@ -21,12 +23,34 @@ struct treeRepresentation* createTree(int data )
     
 };
 
-void travsalTree(struct treeRepresentation *a){
+void preOderTravarsal(struct treeRepresentation *a){
     if (a != NULL)
     {
     printf("%d",a->data);
-    travsalTree(a->left);
-    travsalTree(a->right); 
+    preOderTravarsal(a->left);
+    preOderTravarsal(a->right); 
+    };
+    
+    
+};
+void postOderTravarsal(struct treeRepresentation *a){
+    if (a != NULL)
+    {
+        postOderTravarsal(a->left);
+        postOderTravarsal(a->right);
+        printf("%d",a->data);
+    
+    };
+    
+    
+};
+void inOderTravarsal(struct treeRepresentation *a){
+    if (a != NULL)
+    {
+        inOderTravarsal(a->left);
+        printf("%d",a->data);
+        inOderTravarsal(a->right);
+    
     };
     
     
@@ -51,7 +75,11 @@ int main()
     h2->right = NULL;
 
 
-    travsalTree(h);
+    preOderTravarsal(h);
+    printf("\n");
+    postOderTravarsal(h);
+    printf("\n");
+    inOderTravarsal(h);
     
     
 
